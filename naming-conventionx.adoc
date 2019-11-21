@@ -1,0 +1,15 @@
+= Follow clojure.core's example for idiomatic names like pred and coll.
+
+== in fns
+    * f, g, h - function input
+    * n - integer input usually a size
+    * index - integer index
+    * x, y - numbers
+    * s - string input
+    * coll - a collection
+    * pred - a predicate closure
+    * & more - variadic input
+== in macros
+    * expr - an expression
+    * body - a macro body
+    * binding - a macro binding vector
