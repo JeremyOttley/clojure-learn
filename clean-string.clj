@@ -8,3 +8,6 @@
       (clojure.string/lower-case)
       (clojure.string/replace "n" " ")
       (clojure.string/replace #"[^A-Za-z0-9 ]" "")))
+
+; The "Thread-first" macro (->) inserts into each form the result of
+; the previous, as the first argument (second item)
