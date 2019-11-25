@@ -1,5 +1,5 @@
 (ns edn-example.core
-    (require [clojure.edn :as edn]))
+    (:require [clojure.edn :as edn]))
  
 (def sample-map {:foo "bar" :bar "foo"})
  
