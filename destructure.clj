@@ -15,4 +15,5 @@
   (let [[neil vera] employees]
   (def employee-1 neil ) 
   (def employee-2 vera ) 
-  (str "I employ " (get employee-1 :name) " and " (get employee-2 :name))))
+   (str "I employ " (:name employee-1) " and " (:name employee-2))))
+
