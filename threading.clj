@@ -1,15 +1,16 @@
-; When you are in a situation where you want more freedom as where to
-; put the result of previous data transformations in an 
-; expression, you can use the as-> macro. With it, you can assign a
-; specific name to transformations' output and use it as a
-; placeholder in your chained expressions:
-
-(def coll (list 1 2 3))
-
-(reduce + (remove nil? coll))
-
-;; same but using threading macro
-
-(->> coll
-         (remove nil?)
-         (reduce +))
+(def chief-editor 
+ {:name "Mark Volkmann"
+  :address {:street "644 Glen Summit"
+            :city "St. Charles"
+            :state "Missouri"
+            :zip 63304}
+  :employer {:name "Object Computing, Inc."
+             :address {:street "12140 Woodcrest Dr."
+                       :city "Creve Coeur"
+                       :state "Missouri"
+                       :zip 63141}}})
+;; retrieve
+(-> chief-editor
+  :employer
+  :address
+  :city) ;;=> Creve Couer
