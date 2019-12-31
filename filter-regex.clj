@@ -1,1 +1,1 @@
-(filter #(re-matches REGEX %) SEQUENCE)
+(filter #(re-find REGEX %) SEQUENCE)
