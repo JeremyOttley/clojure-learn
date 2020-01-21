@@ -1,6 +1,7 @@
 (ns utils.core)
 
 (require '[clojure.java.io :as io])
+(require '[clojure.pprint :as pp])
 (require '[clojure.edn :as edn])
 (require '[cheshire.core :refer :all])
 
@@ -17,6 +18,11 @@
 (defn write-to-file [file text]
   (with-open [f (io/writer file)]
     (.write f text)))
+
+;; PRINTING ;;
+
+(defn pretty-print [text]
+  (pp/pprint text))
 
 ;; EDN ;;
 
