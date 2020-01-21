@@ -7,8 +7,7 @@
 
 ;; IO ;;
 
-(defn- rm-rf
- [dir]
+(defn- rm-rf [dir]
   (->> (io/file dir)
        (file-seq)
        (reverse)
@@ -26,14 +25,10 @@
 
 ;; EDN ;;
 
-(defn map-to-edn
-    "Converting a Map to EDN"
-    [m]
+(defn map-to-edn [m]
     (prn-str m))
 
-(defn edn-to-map
-    "Converting EDN to a Map"
-    [e]
+(defn edn-to-map [e]
     (edn/read-string e))
 
 ;; JSON ;;
