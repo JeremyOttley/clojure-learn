@@ -1,2 +1,3 @@
 {:paths ["utils"]
- :deps {}}
+ :deps {clj-http {:mvn/version "3.10.0"}
+        cheshire {:mvn/version "5.9.0"}}}
