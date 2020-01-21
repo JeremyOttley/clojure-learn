@@ -1,5 +1,16 @@
+(require '[clojure.java.io :as io])
 (require '[clojure.edn :as edn])
 (require '[cheshire.core :refer :all])
+
+;; IO ;;
+
+(defn- rm-rf
+ [dir]
+  (->> (io/file dir)
+       (file-seq)
+       (reverse)
+       (map io/delete-file)
+       (println "Directory deleted")))
 
 ;; EDN ;;
 
