@@ -12,6 +12,10 @@
        (map io/delete-file)
        (println "Directory deleted")))
 
+(defn write-to-file [file text]
+  (with-open [f (io/writer file)]
+    (.write f text)))
+
 ;; EDN ;;
 
 (defn map-to-edn
