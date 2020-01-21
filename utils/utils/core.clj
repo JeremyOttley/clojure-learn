@@ -38,8 +38,8 @@
 
 ;; JSON ;;
 
-(defn parse [s]
+(defn parse-json [s]
   (cheshire.core/parse-string s true))
 
-(defn gen [o]
+(defn gen-json [o]
   (cheshire.core/generate-string o {:pretty true}))
