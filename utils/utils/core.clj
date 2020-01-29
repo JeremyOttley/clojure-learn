@@ -31,6 +31,12 @@
 (defn edn-to-map [e]
     (edn/read-string e))
 
+(defn json-response-to-edn [uri]
+	(let [response (http/get uri {:accept :json})]
+	(-> response
+	 :body
+		prn-str)))
+
 ;; JSON ;;
 
 (defn parse-json [s]
