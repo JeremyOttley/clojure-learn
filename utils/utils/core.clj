@@ -5,6 +5,33 @@
 (require '[clojure.edn :as edn])
 (require '[cheshire.core :refer :all])
 
+(defn is-blank? [str-in]
+  (or (nil? str-in) (re-find #"^\s*$" str-in)))
+
+(defn nil-if-blank [str]
+  (if (is-blank? str) nil str))
+
+(defn mod-map [m kfn vfn]
+  (or (apply merge 
+	     (map (fn [[k v]]
+		    { (kfn k) (vfn v) }) m)) 
+      {}))
+
+(defn mod-map-key [m kfn]
+  (partial mod-map kfn))
+
+(defn time-now []
+  (quot (.getTime (new java.util.Date)) 1000))
+
+(defn convert-nl-to-br [str-in]
+  (apply str 
+	 (map #(if (= \newline %) 
+		 "<br/>" %) 
+	      str-in))) ; (convert-nl-to-br "\n|)
+
+(defn convert-br-to-nl [str-in]
+  (s/replace str-in #"<\s*(:?br|BR)\s*\/{0,1}\s*>(:?\n\s*){0,1}" "\n"))
+
 ;; IO ;;
 
 (defn- rm-rf [dir]
