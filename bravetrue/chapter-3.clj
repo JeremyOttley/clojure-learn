@@ -6,3 +6,6 @@
  "Create a custom decrementor"
  [dec-by]
  #(- % dec-by)) ;(def dec3 (dec-maker 3)) -> (dec3 6) = 3
+
+(defn mapset [fn coll]
+	(set (map fn coll))) ;(mapset inc [1 1 2 2])
