@@ -20,6 +20,15 @@
 (defn mod-map-key [m kfn]
   (partial mod-map kfn))
 
+(defn map-vals
+  "Maps a function over the values of an associative collection."
+  [f m]
+  (into {} (map (juxt key (comp f val))) m))
+
+(defn keywordize-keys
+  [m]
+  (into {} (map (juxt (comp keyword key) val)) m))
+
 (defn time-now []
   (quot (.getTime (new java.util.Date)) 1000))
 
