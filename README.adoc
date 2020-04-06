@@ -18,3 +18,12 @@ https://github.com/JeremyOttley/htdp/tree/master/clojure/src/htdp[Clojure HTDP]
     * expr - an expression
     * body - a macro body
     * binding - a macro binding vector
+
+---
+
+first and rest are defined in terms of position, and work on anything that can be treated as an ordered collection
+
+peek and pop work in terms of "natural insertion order" and only work with things that behave like a stack - (so not lazy-seqs, strings, etc.)
+
+lists push and pop from the front, vectors push and pop from the end, queues push to one end, pop from the other
+
