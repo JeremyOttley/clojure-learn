@@ -1,0 +1,5 @@
+{:site-url "http://my-domain.com"
+ :host     "smtp.my-domain.com"
+ :user     "support@my-domain.com"
+ :pass     "fooBarBaz123"
+ :ssl      true}
