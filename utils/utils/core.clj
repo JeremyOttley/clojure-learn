@@ -50,9 +50,10 @@
        (map io/delete-file)
        (println "Directory deleted")))
 
-(defn write-to-file [file text]
-  (with-open [f (io/writer file)]
-    (.write f text)))
+
+(defn write-to-file [file string]
+  (with-open [w (clojure.java.io/writer file :append true)]
+    (.write w string)))
 
 ;; PRINTING ;;
 
