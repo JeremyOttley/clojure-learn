@@ -1,3 +1,5 @@
+;; Multi-Arity 
+
 (defn greet 
   ([fname] (str "Hello " fname)) 
   ([fname lname] (str "Hello " fname " " lname)))
