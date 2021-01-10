@@ -1,11 +1,8 @@
-(ns my.ns
-  (:require [clojure.spec.alpha :as s]))
+(require '[clojure.spec.alpha :as spec])
 
-; define a collection of ints
-(s/def ::ints (s/coll-of int?))
+(spec/def ::big-even (spec/and int? even? #(> % 1000)))
 
-(s/valid? ::ints [2 "2"])         ; false
-(s/valid? ::ints ["4" "4"])       ; false
-(s/valid? ::ints [3 5])           ; true
-(s/valid? ::ints [2])             ; true
-(s/valid? ::ints [2 2 2])         ; true
+(defn ncheck 
+ [x] 
+  (if (spec/valid? ::big-even x) "Looks like a BigEven to me!" 
+    (first (:clojure.spec.alpha/problems (spec/explain-data ::big-even "Definitely not a BigEven ...")))))
