@@ -1,9 +1,9 @@
 (require '[clojure.java.io :as io]
          '[clojure.edn :as edn])
 
-(->> "people.edn"
-     io/resource
+(defn slurp-edn [file]
+  (->> file
      slurp
-     edn/read-string
-     (map :language))
-;; -> ("Lisp" "Python" "Clojure")
+     edn/read-string))
+
+(slurp-edn "data.edn")
