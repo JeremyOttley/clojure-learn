@@ -82,4 +82,5 @@
 (defn gen-json [o]
   (cheshire.core/generate-string o {:pretty true}))
 
-(defn in? [coll elem] (true (some #{elem} coll)))
+(defn in? [coll elem] 
+	(true? (some #{elem} coll)))
